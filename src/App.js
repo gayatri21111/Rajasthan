@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
+
 function App() {
   const cardsRow1 = [
     {
       title: "User Management",
       emoji: "👥",
       type: "user-management",
+      buttonText: "Manage Users",
       features: [
         "Create & manage user accounts",
         "Assign roles and permissions",
@@ -13,11 +15,14 @@ function App() {
         "Reset passwords securely",
         "Generate user activity reports",
       ],
+      action: () =>
+        window.open("https://your-vercel-link.com/user-management", "_blank"),
     },
     {
       title: "Admission Management",
       emoji: "📋",
       type: "admission-management",
+      buttonText: "Handle Admissions",
       features: [
         "Manage student enrollment records",
         "Track admission applications",
@@ -25,11 +30,14 @@ function App() {
         "Generate admission receipts",
         "Automate merit list generation",
       ],
+      action: () =>
+        window.open("https://xyz-swart-nine.vercel.app/", "_blank"),
     },
     {
-      title: "Financial Management",
+      title: "Fees Management",
       emoji: "💳",
       type: "financial-management",
+      buttonText: "View Finances",
       features: [
         "Handle fee collection and dues",
         "Track scholarship & concessions",
@@ -37,6 +45,8 @@ function App() {
         "Monitor outstanding balances",
         "Automate payment reminders",
       ],
+      action: () =>
+        window.open("https://your-vercel-link.com/finances", "_blank"),
     },
   ];
 
@@ -45,6 +55,7 @@ function App() {
       title: "Library Management",
       emoji: "📖",
       type: "library-management",
+      buttonText: "Open Library",
       features: [
         "Maintain book catalog",
         "Track borrow & return records",
@@ -52,11 +63,14 @@ function App() {
         "Issue overdue reminders",
         "Support e-book integration",
       ],
+      action: () =>
+        window.open("https://library-eosin-phi.vercel.app/", "_blank"), // ✅ your Vercel link here
     },
     {
       title: "Hostel Management",
       emoji: "🏢",
       type: "hostel-management",
+      buttonText: "Manage Hostel",
       features: [
         "Manage hostel room allocations",
         "Track occupancy & facilities",
@@ -64,32 +78,16 @@ function App() {
         "Generate hostel fee reports",
         "Schedule maintenance tasks",
       ],
+      action: () =>
+        window.open("https://your-vercel-link.com/hostel", "_blank"),
     },
   ];
 
   const handleLogin = (userType) => {
-    const messages = {
-      student: "🎓 Welcome Student! This would redirect to the student portal.",
-      admin: "👨‍💼 Welcome Admin! This would redirect to the administrative dashboard.",
+    const urls = {
+      student: "https://login-eight-sepia.vercel.app/",
     };
-    alert(messages[userType]);
-  };
-
-  const startModule = (moduleName) => {
-    const moduleNames = {
-      "user-management": "User Management System 👥",
-      "admission-management": "Admission Management System 📋",
-      "financial-management": "Financial Management System 💳",
-      "library-management": "Library Management System 📖",
-      "hostel-management": "Hostel Management System 🏢",
-    };
-
-    alert(
-      `🎉 Starting ${moduleNames[moduleName]}! This would open the ${moduleName.replace(
-        "-",
-        " "
-      )} dashboard.`
-    );
+    window.open(urls[userType], "_blank");
   };
 
   const renderCard = (card) => (
@@ -104,8 +102,11 @@ function App() {
           ))}
         </ul>
       </div>
-      <button className="card-btn" onClick={() => startModule(card.type)}>
-        🚀 Start Now
+      <button
+        className={`card-btn ${card.type}-btn`}
+        onClick={card.action}
+      >
+        🚀 {card.buttonText}
       </button>
     </div>
   );
@@ -114,14 +115,14 @@ function App() {
     <div className="App">
       {/* Navbar */}
       <header className="navbar">
-        <div className="logo">🎓 Vision<span>Next</span></div>
+        <div className="logo">
+          🎓 Vision<span>Next</span>
+        </div>
         <div className="nav-right">
           <button className="login-btn" onClick={() => handleLogin("student")}>
-            👨‍🎓 Student Login
+            👨‍🎓 Student/admin Login
           </button>
-          <button className="login-btn" onClick={() => handleLogin("admin")}>
-            👨‍💼 Admin Login
-          </button>
+      
         </div>
       </header>
 
@@ -137,7 +138,7 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        © {new Date().getFullYear()} VisionNext.
+        © {new Date().getFullYear()} VisionNext. All rights reserved.
       </footer>
     </div>
   );

@@ -203,3 +203,27 @@ body {
     max-width: 340px;
   }
 }
+/* Optional different styles per card */
+.user-management-btn {
+  background-color: #3949ab;
+}
+
+.admission-management-btn {
+  background-color: #00897b;
+}
+
+.financial-management-btn {
+  background-color: #ef6c00;
+}
+
+.library-management-btn {
+  background-color: #5e35b1;
+}
+
+.hostel-management-btn {
+  background-color: #6d4c41;
+}
+
+.card-btn:hover {
+  opacity: 0.9;
+}
