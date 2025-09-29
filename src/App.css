@@ -1,38 +1,205 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* General */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: white;
+  color: #1a237e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background: white;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1a237e;
+}
+
+.logo span {
+  color: #6a1b9a;
+}
+
+.nav-right {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-right .login-btn {
+  background: #1a237e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 150px;
+  text-align: center;
+}
+
+.nav-right .login-btn:hover {
+  background: #6a1b9a;
+}
+
+/* Cards Section */
+.cards-section {
+  padding: 50px 50px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 30px;
+}
+
+/* Card */
+.card {
+  background: white;
+  width: 340px;
+  min-height: 380px;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #1a237e;
+  margin-bottom: 20px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+}
+
+.card-emoji {
+  font-size: 2rem;
+}
+
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.card ul {
+  text-align: left;
+  padding-left: 20px;
+  margin: 0;
+  width: 100%;
+}
+
+.card ul li {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+  list-style-type: none;
+  position: relative;
+  padding-left: 25px;
+}
+
+.card ul li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Different emoji bullets */
+.user-management li::before {
+  content: "👤";
+}
+.admission-management li::before {
+  content: "📝";
+}
+.financial-management li::before {
+  content: "💰";
+}
+.library-management li::before {
+  content: "📚";
+}
+.hostel-management li::before {
+  content: "🏠";
+}
+
+/* Button */
+.card-btn {
+  background: #1a237e;
   color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+  align-self: center;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.card-btn:hover {
+  background: #6a1b9a;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Footer */
+.footer {
+  background: #1a237e;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-right {
+    gap: 20px;
+  }
+
+  .cards-section {
+    padding: 30px 20px;
+  }
+
+  .cards-container {
+    gap: 30px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 340px;
   }
 }
